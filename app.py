@@ -117,17 +117,35 @@ st.markdown("""
 
 @st.cache_resource
 def load_model(disease_name):
-    model_path = os.path.join(os.path.dirname(__file__), "models", f"{disease_name}_dt_model.joblib")
-    if os.path.exists(model_path):
-        return joblib.load(model_path)
+    candidate_paths = [
+        os.path.join(os.path.dirname(__file__), "models", f"{disease_name}_dt_model.joblib"),
+        os.path.join(os.path.dirname(__file__), f"{disease_name}_dt_model.joblib")
+    ]
+    for p in candidate_paths:
+        if os.path.exists(p):
+            return joblib.load(p)
+    
+    # Auto-train if missing
+    try:
+        import train_models
+        train_models.train_and_evaluate(data_dir=os.path.dirname(__file__), models_dir=os.path.dirname(__file__))
+        for p in candidate_paths:
+            if os.path.exists(p):
+                return joblib.load(p)
+    except Exception:
+        pass
     return None
 
 @st.cache_data
 def load_metrics():
-    metrics_path = os.path.join(os.path.dirname(__file__), "models", "metrics_summary.json")
-    if os.path.exists(metrics_path):
-        with open(metrics_path, "r") as f:
-            return json.load(f)
+    candidate_paths = [
+        os.path.join(os.path.dirname(__file__), "models", "metrics_summary.json"),
+        os.path.join(os.path.dirname(__file__), "metrics_summary.json")
+    ]
+    for p in candidate_paths:
+        if os.path.exists(p):
+            with open(p, "r") as f:
+                return json.load(f)
     return {}
 
 def render_header():
@@ -140,10 +158,17 @@ def render_header():
     """, unsafe_allow_html=True)
 
 def render_sidebar():
-    logo_path = os.path.join(os.path.dirname(__file__), "assets", "veltech_logo.png")
-    if os.path.exists(logo_path):
-        st.sidebar.image(logo_path, use_container_width=True)
-    else:
+    logo_paths = [
+        os.path.join(os.path.dirname(__file__), "assets", "veltech_logo.png"),
+        os.path.join(os.path.dirname(__file__), "veltech_logo.png")
+    ]
+    logo_loaded = False
+    for lp in logo_paths:
+        if os.path.exists(lp):
+            st.sidebar.image(lp, use_container_width=True)
+            logo_loaded = True
+            break
+    if not logo_loaded:
         st.sidebar.image("https://img.icons8.com/color/96/caduceus.png", width=80)
     
     st.sidebar.title("Disease Navigation")
@@ -175,6 +200,29 @@ def render_sidebar():
     **Supervisor:**
     Dr. J. Raja (Associate Professor)
     """)
+    st.sidebar.markdown("---")
+    st.sidebar.subheader("📥 Project Downloads")
+    zip_path = os.path.join(os.path.dirname(__file__), "human_diseases.zip")
+    if os.path.exists(zip_path):
+        with open(zip_path, "rb") as f:
+            st.sidebar.download_button(
+                label="📦 Download human_diseases.zip",
+                data=f.read(),
+                file_name="human_diseases.zip",
+                mime="application/zip",
+                use_container_width=True
+            )
+    pptx_path = os.path.join(os.path.dirname(__file__), "DISEASE_PREDICTION_SYSTEM_REVIEW_1.pptx")
+    if os.path.exists(pptx_path):
+        with open(pptx_path, "rb") as f:
+            st.sidebar.download_button(
+                label="📊 Download Review 1 PPTX",
+                data=f.read(),
+                file_name="DISEASE_PREDICTION_SYSTEM_REVIEW_1.pptx",
+                mime="application/vnd.openxmlformats-officedocument.presentationml.presentation",
+                use_container_width=True
+            )
+
     st.sidebar.markdown("---")
     st.sidebar.info("💡 **Explainable AI:** Uses Scikit-Learn Decision Trees to provide transparent, verifiable clinical decision paths.")
     return menu
@@ -876,23 +924,35 @@ def view_model_analytics():
     )
 
     col1, col2 = st.columns(2)
-    plots_dir = os.path.join(os.path.dirname(__file__), "models", "plots")
-    
-    cm_img_path = os.path.join(plots_dir, f"{selected_model_view}_confusion_matrix.png")
-    fi_img_path = os.path.join(plots_dir, f"{selected_model_view}_feature_importance.png")
+    candidate_cm = [
+        os.path.join(os.path.dirname(__file__), "models", "plots", f"{selected_model_view}_confusion_matrix.png"),
+        os.path.join(os.path.dirname(__file__), f"{selected_model_view}_confusion_matrix.png")
+    ]
+    candidate_fi = [
+        os.path.join(os.path.dirname(__file__), "models", "plots", f"{selected_model_view}_feature_importance.png"),
+        os.path.join(os.path.dirname(__file__), f"{selected_model_view}_feature_importance.png")
+    ]
 
     with col1:
         st.markdown("#### Confusion Matrix")
-        if os.path.exists(cm_img_path):
-            st.image(cm_img_path, use_container_width=True)
-        else:
+        found_cm = False
+        for p in candidate_cm:
+            if os.path.exists(p):
+                st.image(p, use_container_width=True)
+                found_cm = True
+                break
+        if not found_cm:
             st.info("Confusion matrix plot not found.")
 
     with col2:
         st.markdown("#### Feature Importance Analysis")
-        if os.path.exists(fi_img_path):
-            st.image(fi_img_path, use_container_width=True)
-        else:
+        found_fi = False
+        for p in candidate_fi:
+            if os.path.exists(p):
+                st.image(p, use_container_width=True)
+                found_fi = True
+                break
+        if not found_fi:
             st.info("Feature importance plot not found.")
 
 # ==================== 11. REVIEW 1 & ARCHITECTURE ====================
@@ -965,9 +1025,15 @@ def view_review1_agenda():
         st.markdown("""
         ### Proposed System Architecture
         """)
-        arch_img_path = os.path.join(os.path.dirname(__file__), "assets", "system_architecture_diagram.png")
-        if os.path.exists(arch_img_path):
-            st.image(arch_img_path, caption="Figure 1: Proposed System Architecture (Disease Prediction System Using Decision Trees)", use_container_width=True)
+        arch_candidates = [
+            os.path.join(os.path.dirname(__file__), "assets", "system_architecture_diagram.png"),
+            os.path.join(os.path.dirname(__file__), "system_architecture_diagram.png"),
+            os.path.join(os.path.dirname(__file__), "page9_rendered_architecture.png")
+        ]
+        for ap in arch_candidates:
+            if os.path.exists(ap):
+                st.image(ap, caption="Figure 1: Proposed System Architecture (Disease Prediction System Using Decision Trees)", use_container_width=True)
+                break
 
     with tabs[5]:
         st.markdown("""
