@@ -1,0 +1,728 @@
+{
+  "diabetes": {
+    "name": "diabetes",
+    "accuracy": 0.95,
+    "precision": 0.9636,
+    "recall": 0.9464,
+    "f1_score": 0.955,
+    "features": [
+      "Pregnancies",
+      "Glucose",
+      "BloodPressure",
+      "SkinThickness",
+      "Insulin",
+      "BMI",
+      "DiabetesPedigreeFunction",
+      "Age"
+    ],
+    "label_names": [
+      "No Diabetes (Low Risk)",
+      "Diabetes Detected (High Risk)"
+    ],
+    "feature_importances": {
+      "Pregnancies": 0.0,
+      "Glucose": 0.8789,
+      "BloodPressure": 0.0123,
+      "SkinThickness": 0.0097,
+      "Insulin": 0.0112,
+      "BMI": 0.0745,
+      "DiabetesPedigreeFunction": 0.002,
+      "Age": 0.0114
+    },
+    "confusion_matrix": [
+      [
+        84,
+        4
+      ],
+      [
+        6,
+        106
+      ]
+    ],
+    "test_samples": 200
+  },
+  "heart": {
+    "name": "heart",
+    "accuracy": 0.805,
+    "precision": 0.8769,
+    "recall": 0.8321,
+    "f1_score": 0.8539,
+    "features": [
+      "Age",
+      "Sex",
+      "ChestPainType",
+      "RestingBP",
+      "Cholesterol",
+      "FastingBS",
+      "RestingECG",
+      "MaxHR",
+      "ExerciseAngina",
+      "Oldpeak",
+      "ST_Slope"
+    ],
+    "label_names": [
+      "Normal / Low Risk",
+      "Heart Disease Detected (High Risk)"
+    ],
+    "feature_importances": {
+      "Age": 0.2501,
+      "Sex": 0.0,
+      "ChestPainType": 0.2517,
+      "RestingBP": 0.0381,
+      "Cholesterol": 0.0786,
+      "FastingBS": 0.0,
+      "RestingECG": 0.0,
+      "MaxHR": 0.13,
+      "ExerciseAngina": 0.0844,
+      "Oldpeak": 0.1137,
+      "ST_Slope": 0.0534
+    },
+    "confusion_matrix": [
+      [
+        47,
+        16
+      ],
+      [
+        23,
+        114
+      ]
+    ],
+    "test_samples": 200
+  },
+  "kidney": {
+    "name": "kidney",
+    "accuracy": 0.945,
+    "precision": 0.9352,
+    "recall": 0.9619,
+    "f1_score": 0.9484,
+    "features": [
+      "Age",
+      "BloodPressure",
+      "SpecificGravity",
+      "Albumin",
+      "Sugar",
+      "RedBloodCells",
+      "BloodGlucoseRandom",
+      "BloodUrea",
+      "SerumCreatinine",
+      "Sodium",
+      "Potassium",
+      "Hemoglobin"
+    ],
+    "label_names": [
+      "No CKD (Normal)",
+      "Chronic Kidney Disease Detected"
+    ],
+    "feature_importances": {
+      "Age": 0.0,
+      "BloodPressure": 0.0063,
+      "SpecificGravity": 0.0,
+      "Albumin": 0.0473,
+      "Sugar": 0.0,
+      "RedBloodCells": 0.0,
+      "BloodGlucoseRandom": 0.0,
+      "BloodUrea": 0.0108,
+      "SerumCreatinine": 0.6559,
+      "Sodium": 0.0,
+      "Potassium": 0.0,
+      "Hemoglobin": 0.2797
+    },
+    "confusion_matrix": [
+      [
+        88,
+        7
+      ],
+      [
+        4,
+        101
+      ]
+    ],
+    "test_samples": 200
+  },
+  "liver": {
+    "name": "liver",
+    "accuracy": 0.985,
+    "precision": 0.9913,
+    "recall": 0.9828,
+    "f1_score": 0.987,
+    "features": [
+      "Age",
+      "Gender",
+      "TotalBilirubin",
+      "DirectBilirubin",
+      "AlkalinePhosphotase",
+      "AlamineAminotransferase",
+      "AspartateAminotransferase",
+      "TotalProteins",
+      "Albumin",
+      "AlbuminGlobulinRatio"
+    ],
+    "label_names": [
+      "Normal Liver Health",
+      "Liver Disease Detected"
+    ],
+    "feature_importances": {
+      "Age": 0.0,
+      "Gender": 0.0,
+      "TotalBilirubin": 0.2917,
+      "DirectBilirubin": 0.0571,
+      "AlkalinePhosphotase": 0.0,
+      "AlamineAminotransferase": 0.6325,
+      "AspartateAminotransferase": 0.0,
+      "TotalProteins": 0.0,
+      "Albumin": 0.0162,
+      "AlbuminGlobulinRatio": 0.0025
+    },
+    "confusion_matrix": [
+      [
+        83,
+        1
+      ],
+      [
+        2,
+        114
+      ]
+    ],
+    "test_samples": 200
+  },
+  "breast_cancer": {
+    "name": "breast_cancer",
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1_score": 1.0,
+    "features": [
+      "RadiusMean",
+      "TextureMean",
+      "PerimeterMean",
+      "AreaMean",
+      "SmoothnessMean",
+      "CompactnessMean",
+      "ConcavityMean",
+      "ConcavePointsMean",
+      "SymmetryMean",
+      "FractalDimension"
+    ],
+    "label_names": [
+      "Benign (Non-Cancerous)",
+      "Malignant (High Cancer Risk)"
+    ],
+    "feature_importances": {
+      "RadiusMean": 0.3364,
+      "TextureMean": 0.011,
+      "PerimeterMean": 0.0344,
+      "AreaMean": 0.0,
+      "SmoothnessMean": 0.0,
+      "CompactnessMean": 0.0,
+      "ConcavityMean": 0.6182,
+      "ConcavePointsMean": 0.0,
+      "SymmetryMean": 0.0,
+      "FractalDimension": 0.0
+    },
+    "confusion_matrix": [
+      [
+        30,
+        0
+      ],
+      [
+        0,
+        170
+      ]
+    ],
+    "test_samples": 200
+  },
+  "stroke": {
+    "name": "stroke",
+    "accuracy": 0.955,
+    "precision": 0.9322,
+    "recall": 0.9167,
+    "f1_score": 0.9244,
+    "features": [
+      "Age",
+      "Hypertension",
+      "HeartDisease",
+      "AvgGlucoseLevel",
+      "BMI",
+      "SmokingStatus",
+      "WorkType"
+    ],
+    "label_names": [
+      "Low Stroke Risk",
+      "High Stroke Risk Detected"
+    ],
+    "feature_importances": {
+      "Age": 0.2463,
+      "Hypertension": 0.0592,
+      "HeartDisease": 0.1053,
+      "AvgGlucoseLevel": 0.5656,
+      "BMI": 0.0236,
+      "SmokingStatus": 0.0,
+      "WorkType": 0.0
+    },
+    "confusion_matrix": [
+      [
+        136,
+        4
+      ],
+      [
+        5,
+        55
+      ]
+    ],
+    "test_samples": 200
+  },
+  "parkinsons": {
+    "name": "parkinsons",
+    "accuracy": 0.9875,
+    "precision": 0.9922,
+    "recall": 0.9922,
+    "f1_score": 0.9922,
+    "features": [
+      "MDVP_Fo_Hz",
+      "MDVP_Fhi_Hz",
+      "MDVP_Flo_Hz",
+      "MDVP_Jitter_Pct",
+      "MDVP_Shimmer",
+      "HNR",
+      "RPDE",
+      "DFA",
+      "Spread1",
+      "PPE"
+    ],
+    "label_names": [
+      "Healthy / Low Risk",
+      "Parkinson's Indicators Detected"
+    ],
+    "feature_importances": {
+      "MDVP_Fo_Hz": 0.0,
+      "MDVP_Fhi_Hz": 0.0,
+      "MDVP_Flo_Hz": 0.0,
+      "MDVP_Jitter_Pct": 0.6584,
+      "MDVP_Shimmer": 0.0425,
+      "HNR": 0.1444,
+      "RPDE": 0.0,
+      "DFA": 0.0,
+      "Spread1": 0.0604,
+      "PPE": 0.0942
+    },
+    "confusion_matrix": [
+      [
+        31,
+        1
+      ],
+      [
+        1,
+        127
+      ]
+    ],
+    "test_samples": 160
+  },
+  "hypertension": {
+    "name": "hypertension",
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1_score": 1.0,
+    "features": [
+      "Age",
+      "SystolicBP",
+      "DiastolicBP",
+      "HeartRate",
+      "BMI",
+      "SodiumIntake",
+      "PhysicalActivityHours",
+      "StressLevel",
+      "FamilyHistory"
+    ],
+    "label_names": [
+      "Normal BP",
+      "Elevated / Stage 1 HTN",
+      "Stage 2 HTN / High Risk"
+    ],
+    "feature_importances": {
+      "Age": 0.0,
+      "SystolicBP": 0.8523,
+      "DiastolicBP": 0.1477,
+      "HeartRate": 0.0,
+      "BMI": 0.0,
+      "SodiumIntake": 0.0,
+      "PhysicalActivityHours": 0.0,
+      "StressLevel": 0.0,
+      "FamilyHistory": 0.0
+    },
+    "confusion_matrix": [
+      [
+        78,
+        0,
+        0
+      ],
+      [
+        0,
+        75,
+        0
+      ],
+      [
+        0,
+        0,
+        47
+      ]
+    ],
+    "test_samples": 200
+  },
+  "symptom": {
+    "name": "symptom",
+    "accuracy": 0.7594,
+    "precision": 0.7849,
+    "recall": 0.7594,
+    "f1_score": 0.7616,
+    "features": [
+      "fever",
+      "cough",
+      "fatigue",
+      "shortness_of_breath",
+      "headache",
+      "chest_pain",
+      "sore_throat",
+      "nausea",
+      "vomiting",
+      "diarrhea",
+      "joint_pain",
+      "loss_of_taste_smell",
+      "rash",
+      "high_fever_with_chills",
+      "abdominal_pain",
+      "wheezing",
+      "jaundice_yellow_eyes",
+      "chronic_cough_with_blood"
+    ],
+    "label_names": [
+      "Allergic Rhinitis",
+      "Asthma",
+      "Bronchitis",
+      "COVID-19",
+      "Common Cold",
+      "Dengue",
+      "Food Poisoning",
+      "Gastroenteritis",
+      "Influenza (Flu)",
+      "Jaundice / Hepatitis",
+      "Malaria",
+      "Migraine",
+      "Pneumonia",
+      "Rheumatoid Arthritis",
+      "Tuberculosis",
+      "Typhoid"
+    ],
+    "feature_importances": {
+      "fever": 0.0684,
+      "cough": 0.1664,
+      "fatigue": 0.0493,
+      "shortness_of_breath": 0.0794,
+      "headache": 0.0596,
+      "chest_pain": 0.018,
+      "sore_throat": 0.0266,
+      "nausea": 0.0296,
+      "vomiting": 0.0481,
+      "diarrhea": 0.0257,
+      "joint_pain": 0.0631,
+      "loss_of_taste_smell": 0.0362,
+      "rash": 0.009,
+      "high_fever_with_chills": 0.1051,
+      "abdominal_pain": 0.0936,
+      "wheezing": 0.0336,
+      "jaundice_yellow_eyes": 0.0376,
+      "chronic_cough_with_blood": 0.0508
+    },
+    "confusion_matrix": [
+      [
+        10,
+        0,
+        2,
+        0,
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        15,
+        2,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      [
+        2,
+        3,
+        14,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        4,
+        12,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      [
+        5,
+        0,
+        3,
+        0,
+        12,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        18,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        19,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        8,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        16,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        18,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        4,
+        0,
+        0,
+        0,
+        0,
+        15,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        18,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        17,
+        0,
+        0,
+        0
+      ],
+      [
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        16,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        20,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        15
+      ]
+    ],
+    "test_samples": 320
+  }
+}
